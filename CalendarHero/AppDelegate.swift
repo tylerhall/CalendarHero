@@ -10,17 +10,15 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    func applicationDidBecomeActive(_ notification: Notification) {
+        for window in NSApp.windows {
+            (window as? Window)?.updateStyle()
+        }
+    }
     
-
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+    func applicationDidResignActive(_ notification: Notification) {
+        for window in NSApp.windows {
+            (window as? Window)?.updateStyle()
+        }
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-
 }
-

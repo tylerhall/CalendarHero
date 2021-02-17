@@ -96,7 +96,8 @@ class ViewController: NSViewController {
             
             for view in todayStackView.arrangedSubviews {
                 if let view = view as? HourStackView {
-                    view.backgroundColor = nil
+                    view.layer?.borderWidth = 0
+                    view.layer?.borderColor = nil
                 }
             }
             let hour = Calendar.current.component(.hour, from: Date())

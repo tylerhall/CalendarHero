@@ -89,8 +89,8 @@ class ViewController: NSViewController {
                 eventBubbleView.textColor = .white
                 hourStackView?.addArrangedSubview(eventBubbleView)
             }
-            
-            let day = Calendar.current.component(.weekday, from: Date())
+
+            let day = Calendar.current.component(.weekday, from: Date()) - 1
             let todayStackView = self.weekStackView.arrangedSubviews[day] as! DayStackView
             todayStackView.backgroundColor = .lightGray
             

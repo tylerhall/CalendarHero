@@ -16,9 +16,15 @@ class ViewController: NSViewController {
 
     let startHour = 0
     let endHour = 23
+    
+    // This is just a wrapper around the current date,
+    // so I can test other dates during development.
+    var theDate: Date {
+        return Date() // Date(timeIntervalSinceNow: 3600 * 6)
+    }
 
     var start: Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: Date()))!
+        return Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: theDate))!
     }
 
     var end: Date {
@@ -90,7 +96,7 @@ class ViewController: NSViewController {
                 hourStackView?.addArrangedSubview(eventBubbleView)
             }
 
-            let day = Calendar.current.component(.weekday, from: Date()) - 1
+            let day = Calendar.current.component(.weekday, from: self.theDate) - 1
             let todayStackView = self.weekStackView.arrangedSubviews[day] as! DayStackView
             todayStackView.backgroundColor = .lightGray
             
@@ -100,10 +106,13 @@ class ViewController: NSViewController {
                     view.layer?.borderColor = nil
                 }
             }
-            let hour = Calendar.current.component(.hour, from: Date())
-            let hourView = todayStackView.arrangedSubviews[hour] as! HourStackView
-            hourView.layer?.borderWidth = 2
-            hourView.layer?.borderColor = NSColor.red.cgColor
+
+            let hour = Calendar.current.component(.hour, from: self.theDate)
+            if hour < todayStackView.arrangedSubviews.count {
+                let hourView = todayStackView.arrangedSubviews[hour] as! HourStackView
+                hourView.layer?.borderWidth = 2
+                hourView.layer?.borderColor = NSColor.red.cgColor
+            }
         }
     }
 

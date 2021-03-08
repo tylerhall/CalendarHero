@@ -10,6 +10,7 @@ import EventKit
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var nextEventCountdownTextField: NSTextField!
     @IBOutlet weak var weekStackView: NSStackView!
 
     let store = EKEventStore()
@@ -35,11 +36,18 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        nextEventCountdownTextField.stringValue = ""
+        
         setup()
 
         refreshTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { [weak self] (timer) in
             self?.loadCalendars()
         })
+    }
+
+    @objc func calendarDidChange(_ notification: Notification) {
+        loadCalendars()
     }
     
     func setup() {
@@ -63,8 +71,10 @@ class ViewController: NSViewController {
         }
 
         store.requestAccess(to: .event) { [weak self] granted, error in
+            guard let self = self else { return }
             guard granted else { return }
-            self?.loadCalendars()
+            self.loadCalendars()
+            NotificationCenter.default.addObserver(self, selector: #selector(self.calendarDidChange(_:)), name: .EKEventStoreChanged, object: self.store)
         }
     }
     
@@ -113,6 +123,8 @@ class ViewController: NSViewController {
                 hourView.layer?.borderWidth = 2
                 hourView.layer?.borderColor = NSColor.red.cgColor
             }
+
+            self.calculateNextEvent()
         }
     }
 
@@ -133,6 +145,28 @@ class ViewController: NSViewController {
         let hourStackView = dayStackView.arrangedSubviews[hour] as! NSStackView
 
         return hourStackView
+    }
+
+    func calculateNextEvent() {
+        let offsetStart = Date(timeIntervalSinceNow: 60 * 5 * -1)
+        let aDayFromNow = Date(timeIntervalSinceNow: 86400 * 3) // Just a random future date.
+        let predicate = self.store.predicateForEvents(withStart: offsetStart, end: aDayFromNow, calendars: nil)
+        let events = self.store.events(matching: predicate)
+        
+        // I couldn't find where it's guaranteed events come back sorted,
+        // so let's do that just to be safe.
+        let sortedEvents = events.sorted { (a, b) -> Bool in
+            return a.startDate < b.startDate
+        }
+
+        if let nextEvent = sortedEvents.first(where: { (event) -> Bool in
+            return !event.isAllDay
+        }) {
+            let df = RelativeDateTimeFormatter()
+            nextEventCountdownTextField.stringValue = "Next event " + df.localizedString(fromTimeInterval: nextEvent.startDate.timeIntervalSinceNow)
+        } else {
+            nextEventCountdownTextField.stringValue = ""
+        }
     }
 }
 

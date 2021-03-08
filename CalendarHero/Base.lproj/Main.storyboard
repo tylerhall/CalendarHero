@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="The macOS Desktop Needs Widgets. (Fight me.)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="Window" customModule="CalendarHero" customModuleProvider="target">
+                    <window key="window" title="The macOS Desktop Needs Widgets. (Fight me.)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="CalendarHero" animationBehavior="default" id="IQv-IB-iLA" customClass="Window" customModule="CalendarHero" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -705,27 +705,39 @@
             <objects>
                 <viewController id="w0F-uO-RDh" customClass="ViewController" customModule="CalendarHero" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="R1J-Dk-Zax">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="326"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="mI1-iv-GQ2">
+                                <rect key="frame" x="-2" y="277" width="454" height="33"/>
+                                <textFieldCell key="cell" selectable="YES" title="30 Minutes" id="dbR-jt-i1o">
+                                    <font key="font" size="28" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr5-YN-bXa">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="261"/>
                             </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="gr5-YN-bXa" secondAttribute="trailing" id="02q-yo-nIN"/>
                             <constraint firstAttribute="bottom" secondItem="gr5-YN-bXa" secondAttribute="bottom" id="9JT-DK-NdK"/>
-                            <constraint firstItem="gr5-YN-bXa" firstAttribute="top" secondItem="R1J-Dk-Zax" secondAttribute="top" id="VTG-wV-vpd"/>
+                            <constraint firstItem="mI1-iv-GQ2" firstAttribute="top" secondItem="R1J-Dk-Zax" secondAttribute="top" constant="16" id="L0v-C9-6VM"/>
+                            <constraint firstItem="gr5-YN-bXa" firstAttribute="top" secondItem="mI1-iv-GQ2" secondAttribute="bottom" constant="16" id="MAM-vN-Qzc"/>
+                            <constraint firstAttribute="trailing" secondItem="mI1-iv-GQ2" secondAttribute="trailing" id="MxF-p1-b5B"/>
+                            <constraint firstItem="mI1-iv-GQ2" firstAttribute="leading" secondItem="R1J-Dk-Zax" secondAttribute="leading" id="ecX-P7-grO"/>
                             <constraint firstItem="gr5-YN-bXa" firstAttribute="leading" secondItem="R1J-Dk-Zax" secondAttribute="leading" id="tRv-r4-XID"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextEventCountdownTextField" destination="mI1-iv-GQ2" id="6Ph-av-U8h"/>
                         <outlet property="weekStackView" destination="gr5-YN-bXa" id="w5p-CI-EiB"/>
                     </connections>
                 </viewController>
                 <customObject id="JL4-8m-ds9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="762"/>
+            <point key="canvasLocation" x="73" y="847"/>
         </scene>
     </scenes>
 </document>

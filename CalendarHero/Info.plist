@@ -28,5 +28,7 @@
 	<string>NSApplication</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Dispaly your calendars.</string>
+	<key>LSUIElement</key>
+	<false/>
 </dict>
 </plist>

@@ -148,7 +148,7 @@ class ViewController: NSViewController {
     }
 
     func calculateNextEvent() {
-        let offsetStart = Date(timeIntervalSinceNow: 60 * 5 * -1)
+        let offsetStart = Date()
         let aDayFromNow = Date(timeIntervalSinceNow: 86400 * 3) // Just a random future date.
         let predicate = self.store.predicateForEvents(withStart: offsetStart, end: aDayFromNow, calendars: nil)
         let events = self.store.events(matching: predicate)
@@ -160,7 +160,7 @@ class ViewController: NSViewController {
         }
 
         if let nextEvent = sortedEvents.first(where: { (event) -> Bool in
-            return !event.isAllDay
+            return !event.isAllDay && (offsetStart < event.startDate)
         }) {
             let df = RelativeDateTimeFormatter()
             nextEventCountdownTextField.stringValue = "Next event " + df.localizedString(fromTimeInterval: nextEvent.startDate.timeIntervalSinceNow)

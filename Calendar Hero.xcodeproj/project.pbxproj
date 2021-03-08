@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C6C7633C25DD79C600E466D7 /* CalendarHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6C7633C25DD79C600E466D7 /* Calendar Hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calendar Hero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C7633F25DD79C600E466D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6C7634125DD79C600E466D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6C7634325DD79C800E466D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		C6C7633D25DD79C600E466D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6C7633C25DD79C600E466D7 /* CalendarHero.app */,
+				C6C7633C25DD79C600E466D7 /* Calendar Hero.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,9 +69,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6C7633B25DD79C600E466D7 /* CalendarHero */ = {
+		C6C7633B25DD79C600E466D7 /* Calendar Hero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6C7634C25DD79C800E466D7 /* Build configuration list for PBXNativeTarget "CalendarHero" */;
+			buildConfigurationList = C6C7634C25DD79C800E466D7 /* Build configuration list for PBXNativeTarget "Calendar Hero" */;
 			buildPhases = (
 				C6C7633825DD79C600E466D7 /* Sources */,
 				C6C7633925DD79C600E466D7 /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = CalendarHero;
+			name = "Calendar Hero";
 			productName = CalendarHero;
-			productReference = C6C7633C25DD79C600E466D7 /* CalendarHero.app */;
+			productReference = C6C7633C25DD79C600E466D7 /* Calendar Hero.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6C7633725DD79C600E466D7 /* Build configuration list for PBXProject "CalendarHero" */;
+			buildConfigurationList = C6C7633725DD79C600E466D7 /* Build configuration list for PBXProject "Calendar Hero" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6C7633B25DD79C600E466D7 /* CalendarHero */,
+				C6C7633B25DD79C600E466D7 /* Calendar Hero */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6C7633725DD79C600E466D7 /* Build configuration list for PBXProject "CalendarHero" */ = {
+		C6C7633725DD79C600E466D7 /* Build configuration list for PBXProject "Calendar Hero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6C7634A25DD79C800E466D7 /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6C7634C25DD79C800E466D7 /* Build configuration list for PBXNativeTarget "CalendarHero" */ = {
+		C6C7634C25DD79C800E466D7 /* Build configuration list for PBXNativeTarget "Calendar Hero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6C7634D25DD79C800E466D7 /* Debug */,
